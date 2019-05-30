@@ -1,13 +1,14 @@
 package main
 
 import (
+	"html/template"
+	"net/http"
+
 	"github.com/astaxie/beego"
 	"github.com/yakaa/crontabms/app/controllers"
 	"github.com/yakaa/crontabms/app/jobs"
 	_ "github.com/yakaa/crontabms/app/mail"
 	"github.com/yakaa/crontabms/app/models"
-	"html/template"
-	"net/http"
 )
 
 const VERSION = "1.0.0"
@@ -15,7 +16,7 @@ const VERSION = "1.0.0"
 func main() {
 	models.Init()
 	jobs.InitJobs()
-
+	beego.SetLogger("file", `{"filename":"logs/access.log","level":7,"maxlines":0,"maxsize":0,"daily":true,"maxdays":10,"color":true}`)
 	// 设置默认404页面
 	beego.ErrorHandler("404", func(rw http.ResponseWriter, r *http.Request) {
 		t, _ := template.New("404.html").ParseFiles(beego.BConfig.WebConfig.ViewsPath + "/error/404.html")
