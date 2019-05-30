@@ -2,7 +2,7 @@ package controllers
 
 import (
 	"github.com/astaxie/beego"
-	libcron "github.com/lisijie/cron"
+	libcron "github.com/yakaa/crontab4g"
 	"github.com/yakaa/crontabms/app/jobs"
 	"github.com/yakaa/crontabms/app/libs"
 	"github.com/yakaa/crontabms/app/models"
