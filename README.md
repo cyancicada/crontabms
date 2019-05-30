@@ -1,4 +1,4 @@
-# webcron
+# crontabms
 ------------
 
 一个定时任务管理器，基于Go语言和beego框架开发。用于统一管理项目中的定时任务，提供可视化配置界面、执行日志记录、邮件通知等功能，无需依赖*unix下的crontab服务。
@@ -26,18 +26,18 @@
 
 获取源码
 
-	$ go get github.com/lisijie/webcron
+	$ go get github.com/yakaa/crontabms
 	
 打开配置文件 conf/app.conf，修改相关配置。
 	
 
-创建数据库webcron，再导入install.sql
+crontabms，再导入install.sql
 
 	$ mysql -u username -p -D webcron < install.sql
 
 运行
 	
-	$ ./webcron
+	$ ./crontabms
 	或
 	$ nohup ./webcron 2>&1 > error.log &
 	设为后台运行
